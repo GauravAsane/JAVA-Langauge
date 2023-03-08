@@ -1,0 +1,66 @@
+//accept number from user and return the count of digits in between 3 and 7
+
+import java.lang.*;
+import java.util.*;
+
+class Program8
+{
+	public static void main(String arg[])
+	{
+		Digits dobj = new Digits();
+
+		dobj.Accept();
+
+		int iRet = dobj.CountRange();
+
+	System.out.println("Number of Digits which are in between in 3 and 7 in number "+dobj.iValue+" is : "+iRet);
+
+	}
+}
+
+
+class Digits
+{
+
+	
+	public int iValue;
+
+	public Digits()
+	{
+		iValue = 0;
+	}
+
+	public void Accept()
+	{
+		System.out.println("Enter the Number :");
+		Scanner sobj = new Scanner(System.in);
+		iValue = sobj.nextInt();
+	}
+
+
+	public int CountRange()
+	{
+		int iDigit = 0;
+		int Count = 0;
+		int Temp = iValue;
+
+		if(Temp < 0)
+		{
+			Temp = -Temp;
+		}
+
+		while(Temp != 0)
+		{
+			iDigit = Temp % 10;
+
+			if(iDigit > 3 && iDigit < 7)
+			{
+				Count++;
+			}
+
+			Temp = Temp / 10;
+		}
+
+		return Count;
+	}
+}
